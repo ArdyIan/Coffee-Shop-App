@@ -1,4 +1,5 @@
 import 'package:coffee_shop/pages/splash_page.dart';
+import 'package:coffee_shop/pages/starting_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,8 @@ Widget build(BuildContext context) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     routes: {
-      '/': (context) => SplashPage()
+      '/': (context) => SplashPage(),
+      '/starting' : (context) => StartingPage(),
     },
   );
 }

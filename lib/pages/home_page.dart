@@ -98,9 +98,72 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
 //search bar
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: SearchBar(),
+                    Container(
+                      width: 500,
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 15),
+                            child: Container(
+                              height: 45,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.grey,
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.search,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Flexible(
+                                    flex: 4,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                          hintText: "Search...",
+                                          hintStyle:
+                                              TextStyle(color: Colors.black),
+                                          border: InputBorder.none),
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                  // Container(
+                                  //   height: 15,
+                                  //   width: 1,
+                                  //   color: Colors.black,
+                                  // ),
+                                  // IconButton(
+                                  //     onPressed: () {},
+                                  //     icon: Icon(
+                                  //       Icons.tune,
+                                  //       color: Colors.black,
+                                  //     ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 45,
+                            height: 45,
+                            decoration: BoxDecoration(
+                                color: buttonColor,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Icon(
+                              Icons.tune,
+                              size: 15,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
 //kotakkan tengah gede
                     Center(

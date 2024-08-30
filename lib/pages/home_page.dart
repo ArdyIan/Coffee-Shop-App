@@ -1,3 +1,4 @@
+import 'package:coffee_shop/pages/widget/custom_Tabbar.dart';
 import 'package:coffee_shop/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,20 +10,63 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> items = [
+    "All Coffee",
+    "Machiato",
+    "Latte",
+    "Americano",
+  ];
+
+  int current = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      // appBar: AppBar(
+      //   flexibleSpace: Container(
+      //     margin: EdgeInsets.all(5),
+      //     width: double.infinity,
+      //     height: double.infinity,
+      //     child: Column(
+      //       children: [
+      //         SizedBox(
+      //           height: 60,
+      //           width: double.infinity,
+      //           child: ListView.builder(
+      //               physics: BouncingScrollPhysics(),
+      //               itemCount: items.length,
+      //               scrollDirection: Axis.horizontal,
+      //               itemBuilder: (context, index) {
+      //                 return GestureDetector(
+      //                   onTap: () {
+      //                     current = index;
+      //                   },
+      //                   child: AnimatedContainer(
+      //                     duration: Duration(milliseconds: 300),
+      //                     margin: EdgeInsets.all(5),
+      //                     width: 80,
+      //                     height: 45,
+      //                     decoration: BoxDecoration(color: backgroundColor),
+      //                   ),
+      //                 );
+      //               }),
+      //         )
+      //       ],
+      //     ),
+      //   ),
+      // ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(
               children: [
+//untuk mengatur warna background
                 Positioned(
                     top: 0,
                     left: 0,
                     right: 0,
-                    height: 250,
+                    height: 325,
                     child: Container(
                       decoration: BoxDecoration(color: textColor),
                     )),
@@ -62,90 +106,77 @@ class _HomePageState extends State<HomePage> {
                     Center(
                       child: Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 65, vertical: 20),
-                        child: Container(
-                          height: 250,
-                          decoration: BoxDecoration(
-                            color: buttonColor,
-                            borderRadius: BorderRadius.circular(25),
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            height: 170,
+                            width: 400,
+                            child: Image.asset(
+                              'assets/Banner.png',
+                              fit: BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.all(5),
-                      width: double.infinity,
-                      height: double.infinity,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 60,
-                            width: double.infinity,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, Index) {
-                                  return Container(
-                                    margin: EdgeInsets.all(5),
-                                    width: 80,
-                                    height: 45,
-                                    decoration:
-                                        BoxDecoration(color: backgroundColor),
-                                  );
-                                }),
-                          )
-                        ],
-                      ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+//kalo ada yang overflow di bagian bawah coba edit sizedbox disini
+                      child: SizedBox(height: 550, child: CustomTabbar()),
                     )
                   ],
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.all(50),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.lightBlue,
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.lightBlue,
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.lightBlue,
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Container(
-                        height: 150,
-                        width: 150,
-                        color: Colors.lightBlue,
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
+//4 kotakan display
+//             Padding(
+//               padding: EdgeInsets.all(30),
+//               child: Column(
+//                 children: [
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     children: [
+//                       Container(
+//                         height: 115,
+//                         width: 115,
+//                         color: Colors.lightBlue,
+//                       ),
+// //jarak ditengah antar row
+//                       SizedBox(
+//                         width: 40,
+//                       ),
+//                       Container(
+//                         height: 115,
+//                         width: 115,
+//                         color: Colors.lightBlue,
+//                       )
+//                     ],
+//                   ),
+//                   SizedBox(
+//                     height: 50,
+//                   ),
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     children: [
+//                       Container(
+//                         height: 115,
+//                         width: 115,
+//                         color: Colors.lightBlue,
+//                       ),
+//                       SizedBox(
+//                         width: 40,
+//                       ),
+//                       Container(
+//                         height: 115,
+//                         width: 115,
+//                         color: Colors.lightBlue,
+//                       )
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             ),
           ],
         ),
       ),

@@ -19,6 +19,9 @@ class _OrderState extends State<Order> {
   ];
   int current = 0;
 
+//data untuk add item number
+  int number = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,45 +195,98 @@ class _OrderState extends State<Order> {
                             width: 20,
                           ),
                           Row(
-                            // mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Container(
-                                  height: 55,
-                                  width: 55,
-                                  color: Colors.lightBlue,
-                                  child: Image.asset(
-                                    'assets/coffee1.png',
-                                    fit: BoxFit.cover,
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 55,
+                                      width: 55,
+                                      color: Colors.lightBlue,
+                                      child: Image.asset(
+                                        'assets/coffee1.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+
+                                  Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Caffee Mocha",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: semiBold,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "Deep Foam",
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                            fontWeight: regular,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                      ]),
+
+                                  //add item number
+                                ],
+                              ),
+                              Container(
+                                height: 35,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5)),
+                                child: Padding(
+                                  padding: EdgeInsets.all(4),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              number++;
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 14,
+                                          )),
+                                      Text(
+                                        number.toString(),
+                                        style: TextStyle(
+                                            fontSize: 14, fontWeight: semiBold),
+                                      ),
+                                      GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              if (number > 0) {
+                                                number--;
+                                              }
+                                              print('Number decreament');
+                                            });
+                                          },
+                                          child: Icon(
+                                            Icons.remove,
+                                            size: 14,
+                                          )),
+                                    ],
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Caffee Mocha",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: semiBold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Deep Foam",
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: regular,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  ])
                             ],
                           ),
                         ],

@@ -1,3 +1,5 @@
+import 'package:coffee_shop/pages/delivery_page.dart';
+import 'package:coffee_shop/pages/detail_product.dart';
 import 'package:coffee_shop/pages/order.dart';
 import 'package:coffee_shop/pages/widget/tabbar_size.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +27,7 @@ class _OrderState extends State<Order> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      // backgroundColor: backgroundColor,
       body: Column(
         children: [
           Expanded(
@@ -427,7 +429,11 @@ class _OrderState extends State<Order> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
-                              onPressed: () {}, icon: Icon(Icons.arrow_back)),
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, '/detailproduct');
+                              },
+                              icon: Icon(Icons.arrow_back)),
                           Expanded(
                             child: Center(
                               child: Text(
@@ -506,21 +512,29 @@ class _OrderState extends State<Order> {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Order()));
                     },
-                    child: Container(
-                        width: 400,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: buttonColor,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: Text(
-                            'Buy Now',
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: semiBold,
-                                color: Colors.white),
-                          ),
-                        )),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DeliveryPage()));
+                      },
+                      child: Container(
+                          width: 400,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: buttonColor,
+                              borderRadius: BorderRadius.circular(15)),
+                          child: Center(
+                            child: Text(
+                              'Buy Now',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: semiBold,
+                                  color: Colors.white),
+                            ),
+                          )),
+                    ),
                   ),
                 ],
               )),

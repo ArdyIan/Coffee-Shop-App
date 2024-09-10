@@ -1,5 +1,5 @@
+import 'package:coffee_shop/pages/order.dart';
 import 'package:coffee_shop/pages/widget/tabbar_size.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee_shop/theme.dart';
 import 'package:readmore/readmore.dart';
@@ -221,35 +221,50 @@ class _detailProductState extends State<detailProduct> {
                   ),
                 ),
                 // SizedBox(height: 50,),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      IconButton(
-                          onPressed: () {}, icon: Icon(Icons.arrow_back)),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 100),
-                        child: Text(
-                          "Detail",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: semiBold,
+                SizedBox(
+                  width: 400,
+                  height: 90,
+                  child: Container(
+                    color: Colors.white,
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, '/homepage');
+                              },
+                              icon: Icon(Icons.arrow_back)),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 100),
+                              child: Text(
+                                "Detail",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: semiBold,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                          Container(
+                            width: 25,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                // color: buttonColor,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Image.asset(
+                              'assets/heart.png',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ],
                       ),
-                      Container(
-                        width: 25,
-                        height: 25,
-                        decoration: BoxDecoration(
-                            // color: buttonColor,
-                            borderRadius: BorderRadius.circular(5)),
-                        child: Image.asset(
-                          'assets/heart.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ],
@@ -282,21 +297,27 @@ class _detailProductState extends State<detailProduct> {
                   ],
                 ),
 
-                Container(
-                    width: 200,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: buttonColor,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Center(
-                      child: Text(
-                        'Buy Now',
-                        style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: semiBold,
-                            color: Colors.white),
-                      ),
-                    )),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Order()));
+                  },
+                  child: Container(
+                      width: 200,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: buttonColor,
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Center(
+                        child: Text(
+                          'Buy Now',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: semiBold,
+                              color: Colors.white),
+                        ),
+                      )),
+                ),
               ],
             ),
           ),

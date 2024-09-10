@@ -14,32 +14,57 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Timer(Duration(seconds: 2),
-        (() => Navigator.pushReplacementNamed(context, '/starting')));
+        (() => Navigator.pushReplacementNamed(context, '/starting'))
+        );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-        backgroundColor: buttonColor2,
-        body: Center(
-          child: RichText(text: TextSpan(
-            children: <TextSpan>[
-              TextSpan(
-                text: 'Coffee', style: title1
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Container(
+                height: 200,
+                width: 200,
+                // color: Colors.lightBlue,
+                child: Image.asset(
+                  'assets/logokopi.png',
+                  fit: BoxFit.cover,
+                ),
               ),
-              TextSpan(
-                text: 'Shop',
-                style: TextStyle(
-                  color: buttonColor2,
-                  fontWeight: semiBold,
-                  fontSize: 50,
+            ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          RichText(
+              text: TextSpan(children: <TextSpan>[
+            TextSpan(
+                text: 'Coffee',
+                style: TextStyle(color: Colors.black, fontSize: 50,
+                fontWeight: semiBold
+                )),
+            TextSpan(
+                text: ' Shop',
+                style: TextStyle(color: Colors.black, fontSize: 50,
+                fontWeight: semiBold
                 )
-              )
-            ]
-          )),
-        ),
+                // style: title1
+                // TextStyle(
+                //   color: buttonColor2,
+                //   fontWeight: semiBold,
+                //   fontSize: 50,
+                // )
+                )
+          ])),
+        ],
+      ),
 
       // body : Container(
       //   decoration: BoxDecoration(
@@ -51,6 +76,4 @@ class _SplashPageState extends State<SplashPage> {
       // )
     );
   }
-
 }
-
